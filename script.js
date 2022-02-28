@@ -1,5 +1,3 @@
-import { get } from "axios";
-
 function currentDay() {
   let today = document.querySelector("#today");
   let now = new Date();
@@ -62,7 +60,7 @@ function getTemp(position) {
   let apiKey = `9130c6c3f81e5410c4080fc310e5279d`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&units=${unit}&appid=${apiKey}`;
   console.log(apiUrl);
-  get(apiUrl).then(showTemp);
+  axios.get(apiUrl).then(showTemp);
 }
 
 // step 3 show weather for location
@@ -83,7 +81,7 @@ function showTemp(response) {
 function getCityWeather(city) {
   let apiKey = `9130c6c3f81e5410c4080fc310e5279d`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  get(apiUrl).then(showTemp);
+  axios.get(apiUrl).then(showTemp);
 }
 
 // function changeTemp() {

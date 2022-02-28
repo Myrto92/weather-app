@@ -1,59 +1,81 @@
+body {
+  border: 20px solid #ebcbd7;
+  box-sizing: border-box;
+  border-radius: 20%;
+  max-width: fit-content;
+  display: block;
+  padding: 50px;
+  margin: 200px auto !important;
+  background-image: url("https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compr");
+}
+
 container {
-  max-width: fit-content !important;
-  border-width: 3px;
-  padding: 40px;
-  margin: 28px;
   display: flex;
   flex-direction: column;
-  border-color: rgb(190, 183, 183);
-  background: linear-gradient(135deg, #fdfcfb 0%, #dfd4cc 100%);
   border-style: groove;
   font-family: arial, sans-serif;
 }
 
-h1 {
-  font-size: small;
-  text-align: center;
-  text-decoration: underline;
-}
 .first {
-  margin-left: 4px;
   text-align: center;
-  background: #1a0fa51c;
+  background: linear-gradient(
+    to bottom,
+    rgb(247, 247, 247) 23.8%,
+    rgb(252, 221, 221) 92%
+  );
   height: 100px;
   width: 500px;
   border: solid gray 1px;
 }
 .type {
   border-radius: 7px;
-  border-color: azure;
+  border-color: #0e5792;
   width: 40%;
   display: inline-block;
   padding-left: 30px;
-
   margin: 50px;
+  color: #0e5792;
 }
 
 #searchButton {
-  border-color: azure;
-  background-color: #ffd77c;
+  border-color: #0e5792;
+  color: #0e5792;
+  background-color: #f5ebeb;
   border-radius: 7px;
   margin-left: 7px;
   display: inline-block;
 }
 
+#searchButton:hover {
+  color: #f5ebeb;
+  background-color: #0e5792;
+  transition: 200ms ease-in-out;
+}
+
 #currentLocation {
+  color: #0e5792;
   display: inline-block;
   margin: 0 auto;
-  border-color: azure;
-  background-color: #2d9fc2;
+  border-color: #0e5792;
+  background-color: #f5ebeb;
   border-radius: 7px;
   margin-left: -50px;
 }
 
+#currentLocation:hover {
+  color: #f5ebeb;
+  background-color: #0e5792;
+  transition: 200ms ease-in-out;
+}
+
 .second {
-  margin-left: 4px;
-  background: #fcfefe;
+  background: linear-gradient(
+    179.1deg,
+    rgb(247, 238, 238) -1.9%,
+    rgb(247, 202, 201) 44.9%,
+    rgb(145, 168, 208) 96.1%
+  );
+
   height: 150px;
   width: 500px;
   margin-top: 5px;
@@ -67,44 +89,66 @@ h1 {
   border: solid #8080801f 1px;
   width: 100px;
   font-size: 20px;
+
   font-family: "Courier New", Courier, monospace;
   padding-top: 16px;
   padding-left: 3px;
+  color: #0e5792;
 }
+
+h1 {
+  font-size: 18px !important;
+  text-align: center;
+  font-weight: bolder !important;
+  font-family: "Courier New", Courier, monospace;
+}
+
 .rest {
+  color: #0e5792;
   font-size: 18px;
   opacity: 70%;
   width: 200px;
   padding-top: 15px;
   padding-left: 38px;
-
+  font-family: "Courier New", Courier, monospace;
   padding-left: inherit;
   padding-top: 21px;
-
+  margin-top: 27px;
   width: 200px;
 }
 
 .more {
+  color: #0e5792;
   padding-left: 7px;
-  padding-top: 29px;
-
+  padding-top: 50px;
+  font-family: "Courier New", Courier, monospace;
   opacity: 56%;
   text-align: center;
-  font-size: 15px;
+  font-size: 23px;
 }
 
 #humidity {
+  font-weight: bold;
+  color: #0e5792;
   font-size: 15px;
   opacity: 70%;
+  font-family: "Courier New", Courier, monospace;
 }
 
 #windPop {
+  font-weight: bold;
+  color: #0e5792;
   font-size: 15px;
   opacity: 70%;
+  font-family: "Courier New", Courier, monospace;
 }
 .third {
-  margin-left: 4px;
-  background: #75afe9;
+  background: linear-gradient(
+    to top,
+    rgb(247, 238, 238) -1.9%,
+    rgb(247, 202, 201) 44.9%,
+    rgb(145, 168, 208) 96.1%
+  );
   padding-left: 30px;
   height: 200px;
   width: 500px;
@@ -115,13 +159,15 @@ h1 {
 
 .weather {
   word-spacing: 16px;
+  font-weight: 500;
   font-size: 12px;
   text-align: left;
   padding-top: 20px;
+  color: #0e5792;
 }
 
 .icons {
-  color: #f1b963;
+  color: #398dd3;
   word-spacing: 38px;
   font-size: 25px;
   align-content: space-between;
@@ -131,6 +177,7 @@ h1 {
   word-spacing: 40px;
   font-size: 19px;
   text-align: left;
+  color: #0e5792;
 }
 
 #code {
