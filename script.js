@@ -120,3 +120,5 @@ function changeBack(event) {
 
 let cTemp = document.getElementById("celcius");
 cTemp.addEventListener("click", changeBack); //
+
+getCityWeather("Athens");
