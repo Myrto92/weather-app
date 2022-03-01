@@ -67,15 +67,25 @@ function getTemp(position) {
 function showTemp(response) {
   console.log(response.data.main.temp);
   console.log(response.data.name);
+  console.log(response.data.weather[0].icon);
   let displayName = document.querySelector("h1");
   displayName.innerHTML = response.data.name;
   let displayTemp = document.getElementById("temp");
   let temperature = response.data.main.temp;
   displayTemp.innerHTML = Math.round(temperature);
   let humidity = document.getElementById("humidity");
-  humidity.innerHTML = `Humidity: ` + response.data.main.humidity;
+  humidity.innerHTML = `Humidity: ` + response.data.main.humidity + `%`;
   let windDisplay = document.getElementById("windPop");
-  windDisplay.innerHTML = `Wind: ` + Math.round(response.data.wind.speed);
+  windDisplay.innerHTML =
+    `Wind: ` + Math.round(response.data.wind.speed) + `km/H`;
+  let displayIcon = document.querySelector("#iconFirst");
+  displayIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  displayIcon.setAttribute("alt", response.data.weather[0].description);
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function getCityWeather(city) {
@@ -101,5 +111,4 @@ function getCityWeather(city) {
 // }
 
 // let cTemp = document.getElementById("celcius");
-// cTemp.addEventListener("click", changeBack);
-//
+// cTemp.addEventListener("click", changeBack);//
