@@ -3,6 +3,7 @@ body {
   box-sizing: border-box;
   border-radius: 20%;
   max-width: fit-content;
+  min-width: fit-content !important;
   display: block;
   padding: 50px;
   margin: 200px auto !important;
@@ -88,7 +89,7 @@ container {
 .today {
   border: solid #8080801f 1px;
   width: 300px;
-  font-size: 18px;
+  font-size: 20px;
 
   font-family: "Courier New", Courier, monospace;
   padding-top: 6px;
@@ -104,21 +105,27 @@ img {
   width: 60px;
 }
 
-#celsius:hover {
-  cursor: grab;
+a:link {
+  font-size: small;
+
+  text-decoration: none;
 }
 
-#celsius:active {
-  color: blue;
+a:hover {
   font-weight: bold;
 }
 
-#fahrenheit:hover {
-  color: blue;
+.active {
+  font-weight: bold;
+  color: rgb(34, 25, 88);
+  cursor: default;
 }
 
+#temp {
+  color: rgb(34, 25, 88);
+}
 h1 {
-  font-size: 20px !important;
+  font-size: 22px !important;
   text-align: center;
   font-weight: bolder !important;
   font-family: "Courier New", Courier, monospace;

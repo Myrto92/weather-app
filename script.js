@@ -65,13 +65,12 @@ function getTemp(position) {
 
 // step 3 show weather for location
 function showTemp(response) {
-  console.log(response.data.main.temp);
-  console.log(response.data.name);
-  console.log(response.data.weather[0].icon);
+  celsiusTemperature = response.data.main.temp;
+
   let displayName = document.querySelector("h1");
   displayName.innerHTML = response.data.name;
   let displayTemp = document.getElementById("temp");
-  let temperature = response.data.main.temp;
+  let temperature = celsiusTemperature;
   displayTemp.innerHTML = Math.round(temperature);
   let humidity = document.getElementById("humidity");
   humidity.innerHTML = `Humidity: ` + response.data.main.humidity + `%`;
@@ -94,21 +93,30 @@ function getCityWeather(city) {
   axios.get(apiUrl).then(showTemp);
 }
 
-// function changeTemp() {
-//   let celcTemp = document.getElementById("temp");
-//   console.log(celcTemp.innerText);
-//   let celciusToFarenheit = Math.round(celcTemp.innerText * 1.8) + 32;
-//   celcTemp.innerHTML = celciusToFarenheit;
-// }
+//change to Fahrehnheit
 
-// let farehneitTemp = document.getElementById("farehneit");
-// farehneitTemp.addEventListener("click", changeTemp);
+function changeTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.getElementById("temp");
+  farehneitTemp.classList.add("active");
+  cTemp.classList.remove("active");
+  let celciusToFarenheit = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(celciusToFarenheit);
+}
 
-// function changeBack() {
-//   let celcTemp = document.getElementById("temp");
-//   let farehneitToCelsius = Math.round((celcTemp.innerText - 32) / 1.8);
-//   celcTemp.innerHTML = farehneitToCelsius;
-// }
+let celciusTemperature = null;
 
-// let cTemp = document.getElementById("celcius");
-// cTemp.addEventListener("click", changeBack);//
+let farehneitTemp = document.getElementById("farehneit");
+farehneitTemp.addEventListener("click", changeTemp);
+
+function changeBack(event) {
+  event.preventDefault();
+  farehneitTemp.classList.remove("active");
+  cTemp.classList.add("active");
+  let celcTemp = document.getElementById("temp");
+  let farehneitToCelsius = Math.round(celsiusTemperature);
+  celcTemp.innerHTML = farehneitToCelsius;
+}
+
+let cTemp = document.getElementById("celcius");
+cTemp.addEventListener("click", changeBack); //
