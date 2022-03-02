@@ -170,21 +170,52 @@ h1 {
   font-family: "Courier New", Courier, monospace;
 }
 .third {
+  padding-left: 25px;
+
   background: linear-gradient(
     to top,
     rgb(247, 238, 238) -1.9%,
     rgb(247, 202, 201) 44.9%,
     rgb(145, 168, 208) 96.1%
   );
-  padding-left: 30px;
+
   height: 200px;
   width: 500px;
   margin-top: 10px;
   border: solid gray 1px;
-  display: inline-flex;
 }
 
-.weather {
+.days {
+  font-weight: bold;
+  font-size: 15px;
+
+  padding-top: 20px;
+  padding-bottom: 10px;
+  color: #0e5792;
+}
+
+.forecast-max {
+  padding: 7px;
+  font-size: 18px;
+  color: #0e5792;
+}
+
+.forecast-min {
+  padding-left: 3px;
+  font-weight: lighter;
+  opacity: 0.8;
+  font-size: 17px;
+  color: #0e5792;
+}
+
+#icons {
+  color: #398dd3;
+  padding-top: 5px;
+  padding-left: 12px;
+  font-size: 25px;
+}
+
+/* .weather {
   word-spacing: 16px;
   font-weight: 500;
   font-size: 12px;
@@ -206,7 +237,7 @@ h1 {
   text-align: left;
   color: #0e5792;
 }
-
+*/
 #code {
   margin-left: 90px;
   color: blueviolet;
