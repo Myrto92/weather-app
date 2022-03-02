@@ -59,14 +59,13 @@ function getTemp(position) {
   let unit = "metric";
   let apiKey = `9130c6c3f81e5410c4080fc310e5279d`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&units=${unit}&appid=${apiKey}`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(showTemp);
 }
 
 // step 3 show weather for location
 function showTemp(response) {
   celsiusTemperature = response.data.main.temp;
-
   let displayName = document.querySelector("h1");
   displayName.innerHTML = response.data.name;
   let displayTemp = document.getElementById("temp");
@@ -85,6 +84,8 @@ function showTemp(response) {
   displayIcon.setAttribute("alt", response.data.weather[0].description);
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.weather[0].description;
+
+  getForecast(response.data.coord);
 }
 
 function getCityWeather(city) {
@@ -123,7 +124,15 @@ cTemp.addEventListener("click", changeBack); //
 
 getCityWeather("Athens");
 
-function displayForecast() {
+function getForecast(coordinates) {
+  let apiKey = `9130c6c3f81e5410c4080fc310e5279d`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
 
