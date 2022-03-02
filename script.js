@@ -122,3 +122,26 @@ let cTemp = document.getElementById("celcius");
 cTemp.addEventListener("click", changeBack); //
 
 getCityWeather("Athens");
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Monday", "Thuesday", "Wednesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-4">
+    <div class="days">${day}</div>
+      <i class="fas fa-sun" id="icons"></i>
+        <div 
+        class="forecast-max">18°<span 
+        class="forecast-min">12°</span>
+    </div>
+</div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
