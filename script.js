@@ -94,33 +94,33 @@ function getCityWeather(city) {
   axios.get(apiUrl).then(showTemp);
 }
 
-//change to Fahrehnheit
+// //change to Fahrehnheit
 
-function changeTemp(event) {
-  event.preventDefault();
-  let temperatureElement = document.getElementById("temp");
-  farehneitTemp.classList.add("active");
-  cTemp.classList.remove("active");
-  let celciusToFarenheit = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(celciusToFarenheit);
-}
+// function changeTemp(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.getElementById("temp");
+//   farehneitTemp.classList.add("active");
+//   cTemp.classList.remove("active");
+//   let celciusToFarenheit = (celsiusTemperature * 9) / 5 + 32;
+//   temperatureElement.innerHTML = Math.round(celciusToFarenheit);
+// }
 
-let celciusTemperature = null;
+// let celciusTemperature = null;
 
-let farehneitTemp = document.getElementById("farehneit");
-farehneitTemp.addEventListener("click", changeTemp);
+// let farehneitTemp = document.getElementById("farehneit");
+// farehneitTemp.addEventListener("click", changeTemp);
 
-function changeBack(event) {
-  event.preventDefault();
-  farehneitTemp.classList.remove("active");
-  cTemp.classList.add("active");
-  let celcTemp = document.getElementById("temp");
-  let farehneitToCelsius = Math.round(celsiusTemperature);
-  celcTemp.innerHTML = farehneitToCelsius;
-}
+// function changeBack(event) {
+//   event.preventDefault();
+//   farehneitTemp.classList.remove("active");
+//   cTemp.classList.add("active");
+//   let celcTemp = document.getElementById("temp");
+//   let farehneitToCelsius = Math.round(celsiusTemperature);
+//   celcTemp.innerHTML = farehneitToCelsius;
+// }
 
-let cTemp = document.getElementById("celcius");
-cTemp.addEventListener("click", changeBack); //
+// let cTemp = document.getElementById("celcius");
+// cTemp.addEventListener("click", changeBack); //
 
 getCityWeather("Athens");
 
