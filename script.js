@@ -6,6 +6,7 @@ function currentDay() {
     "Monday",
     "Tuesday",
     "Wednesday",
+    "Thursday",
     "Friday",
     "Saturday",
     "Sunday",
@@ -94,34 +95,6 @@ function getCityWeather(city) {
   axios.get(apiUrl).then(showTemp);
 }
 
-// //change to Fahrehnheit
-
-// function changeTemp(event) {
-//   event.preventDefault();
-//   let temperatureElement = document.getElementById("temp");
-//   farehneitTemp.classList.add("active");
-//   cTemp.classList.remove("active");
-//   let celciusToFarenheit = (celsiusTemperature * 9) / 5 + 32;
-//   temperatureElement.innerHTML = Math.round(celciusToFarenheit);
-// }
-
-// let celciusTemperature = null;
-
-// let farehneitTemp = document.getElementById("farehneit");
-// farehneitTemp.addEventListener("click", changeTemp);
-
-// function changeBack(event) {
-//   event.preventDefault();
-//   farehneitTemp.classList.remove("active");
-//   cTemp.classList.add("active");
-//   let celcTemp = document.getElementById("temp");
-//   let farehneitToCelsius = Math.round(celsiusTemperature);
-//   celcTemp.innerHTML = farehneitToCelsius;
-// }
-
-// let cTemp = document.getElementById("celcius");
-// cTemp.addEventListener("click", changeBack); //
-
 getCityWeather("Athens");
 
 function getForecast(coordinates) {
@@ -131,26 +104,42 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  let days = ["Sund", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  // console.log(forecast.data.daily);
+  console.log(response);
   let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.daily;
+
   let forecastHTML = `<div class="row">`;
 
-  let days = ["Monday", "Thuesday", "Wednesday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-4">
-    <div class="days">${day}</div>
-      <i class="fas fa-sun" id="icons"></i>
-        <div 
-        class="forecast-max">18°<span 
-        class="forecast-min">12°</span>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-4">
+    <div class="days">${formatDay(forecastDay.dt)}</div>
+      <img 
+      src="http://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+      }@2x.png"
+      alt=""
+      width="40"
+      />       
+      <div 
+        class="forecast-max">${Math.round(forecastDay.temp.max)}°<span 
+        class="forecast-min">${Math.round(forecastDay.temp.min)}°</span>
     </div>
 </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
